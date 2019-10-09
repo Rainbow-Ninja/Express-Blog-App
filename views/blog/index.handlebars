@@ -1,0 +1,35 @@
+<style>
+    #blogPost{
+        padding: 20px 40px;
+    }
+    #blogIndex{
+        background-color: azure;
+    }
+
+    .card-text{
+        text-overflow: ellipsis; 
+        overflow: hidden; 
+        white-space: nowrap;
+    }
+
+</style>
+
+<div id="blogIndex">
+    <h1>Index Blog Page</h1>
+
+    <a href="/blog/new">Create New Blog</a>
+
+    {{#each blog}}
+        <div id="blogPost">
+            <div class="shadow card">
+                <h5 class="card-header">{{ this.title }}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{ this.content }}</p>
+                    <a class="btn btn-sm btn-primary" href="/blog/{{this._id}}">Keep Reading</a>
+                    <a class="btn btn-sm btn-primary" href="/blog/{{this._id}}?_method=DELETE">Delete Blog</a>
+                    <a class="btn btn-sm btn-primary" href="/blog/edit/{{this._id}}">Edit Blog</a>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

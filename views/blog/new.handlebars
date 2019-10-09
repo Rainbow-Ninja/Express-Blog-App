@@ -1,0 +1,54 @@
+<style>
+    form{
+        margin-left: 25%;
+        margin-top: 7%;
+        background-color: rgba(247, 166, 46, 0.3);
+        width: 700px;
+        padding: 30px 50px;
+    }
+
+    textArea{
+        width: 600px;
+    }
+    #name{
+        width: 600px;
+    }
+    #newBlog{
+        height: 100vh;
+        background-image: url(http://www.cultivatingculture.com/wp-content/uploads/2015/08/shutterstock_200695001.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #newBlog h1{
+        font-family: 'Indie Flower', cursive;
+        padding: 40px 0 0 250px;
+        transform: rotate(-12deg);
+    }
+    label{
+        font-family: 'Indie Flower', cursive;
+    }
+
+</style>
+
+<div id="newBlog">
+    <h1>New Blog Page</h1>
+
+    <form method="post" action="/blog">
+        <div>
+            <label>Title</label>
+        </div>
+        <div>
+            <input id="name" type="text" name="title" />
+        </div>
+        <br>
+        <div>
+            <label>Blog Entry</label>
+        </div>
+        <div>
+            <textarea name="content"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Submit Form" />
+        </div>
+    </form>
+</div>

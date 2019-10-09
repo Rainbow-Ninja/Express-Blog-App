@@ -1,0 +1,39 @@
+<style>
+    #editTitle{
+        width: 600px;
+    }
+
+    #editContent{
+        width: 600px;
+    }
+
+    #blogEdit{
+        padding: 5%;
+        background-image: url(http://www.cultivatingculture.com/wp-content/uploads/2015/08/shutterstock_200695001.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+</style>
+
+<div id="blogEdit">
+    <h1>Edit Blog</h1>
+
+    <form method="POST" action="/blog/{{blog._id}}?_method=PUT">
+        <div>
+            <label>Title:</label>
+        </div>
+        <div>
+            <input id="editTitle" type="text" name="title" value="{{blog.title}}" />
+        </div><br><br>
+        <div>
+            <label>Content:</label>
+        </div>
+        <div>
+            <textarea id="editContent" name="content">{{blog.content}}</textarea>
+        </div>
+        <div>
+            <input type="submit" value="Submit Form" />
+        </div>
+    </form>
+</div>
