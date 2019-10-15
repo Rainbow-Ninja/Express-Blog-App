@@ -1,11 +1,20 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const session = require('express-session');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 
 const app = express();
 const port = 3000;
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { expires: 600000 },
+    // store: new MongoStore({mongooseConnection: mongoose.connection})
+  }))
 
 mongoose.connect("mongodb://localhost/books_r_us", { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
@@ -20,6 +29,7 @@ app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(require("./routes/login_routes"));
 app.use(require("./routes/author_routes"));
 app.use(require("./routes/blog_routes"));
 app.use("./views/images", express.static("images"));

@@ -3,7 +3,8 @@ const BlogModel = require("../database/models/blog_model");
 async function create(req, res) {
     //logic for creating a resource
     let { title, content } = req.body;
-    let blog = await BlogModel.create({ title, content })
+    let author = req.session.user.email;
+    let blog = await BlogModel.create({ title, content, author })
         .catch(err => res.status(500).send(err));
     res.redirect("/blog");
 }

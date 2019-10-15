@@ -9,6 +9,10 @@ const BlogSchema = new Schema({
     content: {
         type: String,
         default: ""
+    },
+    author:{
+        type: String
+        // required: true
     }
 });
 
